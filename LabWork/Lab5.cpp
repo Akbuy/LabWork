@@ -134,12 +134,12 @@ void Lab5::task3()
 
     std::cout << "\nLab 5: Task 3: Sorted Array: " << std::endl;
 
-    std::sort(Array.begin(), Array.end());
-
     for (size_t i = 0; i < inputAsIntN; i++)
     {
         std::sort(Array[i].begin(), Array[i].end());
     }
+
+    std::sort(Array.begin(), Array.end());
 
     for (auto ArrayElem : Array)
     {

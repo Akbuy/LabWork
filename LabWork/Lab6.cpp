@@ -32,7 +32,7 @@ void Lab6::task2()
 {
     for (size_t i = 0; i < 5; i++)
     {
-        std::cout << "Lab 6: Task 2: Iteration: " << i << " Input Value:" << std::endl;
+        std::cout << "Lab 6: Task 2: Iteration: " << i + 1 << " Input Value:" << std::endl;
 
         std::string InputString;
 

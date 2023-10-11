@@ -89,7 +89,7 @@ int main()
 
     Lab6::task2();
 
-    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 9);
     std::cout << "\nСедьмая лабораторная работа" << std::endl;
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
 
@@ -99,7 +99,7 @@ int main()
     std::cout << "\nВосьмая лабораторная работа" << std::endl;
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
 
-    std::cout << Lab8::task1();
+    std::cout << "Lab 8: Task 1: Result: " << Lab8::task1();
 
     Lab8::task2();
 }
