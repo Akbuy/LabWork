@@ -1,4 +1,7 @@
 #pragma once
+
+#include <string>
+
 class Lab5
 {
 public:

@@ -10,6 +10,8 @@
 #include "Lab4.h"
 #include "Lab5.h"
 #include "Lab6.h"
+#include "Lab7.h"
+#include "Lab8.h"
 
 int main()
 {
@@ -73,11 +75,31 @@ int main()
     std::cout << "\nПятая лабораторная работа" << std::endl;
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
 
+    std::cout << Lab5::task1();
+
     Lab5::task2();
 
     Lab5::task3();
 
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 6);
+    std::cout << "\nШестая лабораторная работа" << std::endl;
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+
     Lab6::task1();
 
     Lab6::task2();
+
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
+    std::cout << "\nСедьмая лабораторная работа" << std::endl;
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+
+    Lab7::task1();
+
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 8);
+    std::cout << "\nВосьмая лабораторная работа" << std::endl;
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+
+    std::cout << Lab8::task1();
+
+    Lab8::task2();
 }

@@ -1,20 +1,16 @@
 #include "Lab6.h"
 
-#include <string>
 #include <iostream>
+#include <vector>
+#include <algorithm>
+#include <string>
 
 void Lab6::task1()
 {
     std::string InputString;
 
     std::cout << "\nLab 6: Task 1: Input String: English Alphabet:" << std::endl;
-    std::cin >> InputString;
-
-    if (std::cin.fail())
-    {
-        std::cout << "You entered a number. Try again.\n";
-        Lab6::task1();
-    }
+    InputString = Lab6::StringValid(InputString);
 
     std::string Alphabet = "abcdefghijklmnopqrstuvwxyz";
 
@@ -24,7 +20,7 @@ void Lab6::task1()
         {
             if (InputItem == AlphabetItem)
             {
-                Alphabet.erase(Alphabet.find(InputItem), Alphabet.find(InputItem));
+                Alphabet.erase(Alphabet.find(InputItem), 1);
             }
         }
     }
@@ -36,26 +32,76 @@ void Lab6::task2()
 {
     for (size_t i = 0; i < 5; i++)
     {
-        std::cout << "Lab 6: Task 2: Input Value: " << std::endl;
+        std::cout << "Lab 6: Task 2: Iteration: " << i << " Input Value:" << std::endl;
 
         std::string InputString;
 
         std::cin >> InputString;
 
-        if (std::cin.fail())
+        if (check_number(InputString))
         {
-            std::cout << "You entered a not number. Try again.\n";
-            Lab6::task2();
+            std::cout << "Lab 6: Task 2: Result: Is Numeric" << std::endl;
         }
-
-        float Result = std::stof(InputString);
-
-        std::cout << "Lab 6: Task 2: Result: " << Result << std::endl;
+        else
+        {
+            std::cout << "Lab 6: Task 2: Result: Is Not Numeric" << std::endl;
+        }
     }
 }
 
-void Lab6::task3() 
+std::string Lab6::StringValid(std::string Input)
 {
-    
+    std::getline(std::cin, Input);
+    while (std::cin.fail() || std::cin.eof() || Input.find_first_not_of("abcdefghijklmnopqrstuvwxyz") != std::string::npos)
+    {
+
+        std::cout << "Not valid value, enter string: " << std::endl;
+
+        if (Input.find_first_not_of("abcdefghijklmnopqrstuvwxyz") == std::string::npos)
+        {
+            std::cin.clear();
+            std::cin.ignore(256, '\n');
+        }
+
+        std::getline(std::cin, Input);
+    }
+
+    return Input;
 }
 
+float Lab6::stringToFloat(std::string Input)
+{
+    std::getline(std::cin, Input);
+    while (std::cin.fail() || std::cin.eof() || Input.find_first_not_of("0123456789") != std::string::npos)
+    {
+
+        std::cout << "Not valid value, enter the number of rows in the range from 1 to 100: " << std::endl;
+
+        if (Input.find_first_not_of("0123456789") == std::string::npos)
+        {
+            std::cin.clear();
+            std::cin.ignore(256, '\n');
+        }
+
+        std::getline(std::cin, Input);
+    }
+
+    return std::stof(Input);
+}
+
+bool Lab6::check_number(std::string str)
+{
+    for (int i = 0; i < str.length(); i++)
+    {
+        if (str[i] == ',' || str[i] == '.')
+        {
+            continue;
+        }
+        if (isdigit(str[i]) == false)
+        {
+            return false;
+        }
+    }
+
+    return true;
+}
